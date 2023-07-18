@@ -12,14 +12,51 @@
         <input type="text" name="locationQuery" id="locationQuery">
         <button type="button" class="search-btn">[Q]</button>
     </form>
-    <p class="display-name-region"></p>
-    <p class="display-country"></p>
-    <p class="date-month-day-year"></p>
-    <p class="date-time"></p>
-    <p class="display-condition"></p>
-    <p class="display-true-degrees"></p>
-    <p class="display-degrees"></p>
-    <button class="toggle-celsius-btn">Displaying °C</button>
+    <div class="main-info">
+        <p class="display-name-region"></p>
+        <p class="display-country"></p>
+        <p class="date-month-day-year"></p>
+        <p class="date-time"></p>
+        <p class="display-condition"></p>
+        <img src="" alt="" title="" class="display-condition-icon">
+        <p class="display-true-degrees"></p>
+        <p>Feels Like</p>
+        <p class="display-degrees"></p>
+        <button class="toggle-celsius-btn">Displaying °C</button>
+        <button class="refresh-btn">⟳</button>
+    </div>
+    <div class="aux-info">
+        <p>Today's Weather</p>
+        <p>High</p>
+        <p class="display-high"></p>
+        <p>Low</p>
+        <p class="display-low"></p>
+        <p>Chance of Rain</p>
+        <p class="display-chance-of-rain"></p>
+        <p>Chance of Snow</p>
+        <p class="display-chance-of-snow"></p>
+        <p>Wind Speed</p>
+        <p class="display-wind-speed"></p>
+        <p>Humidity</p>
+        <p class="display-humidity"></p>
+        <p>UV Index</p>
+        <p class="display-uv-index"></p>
+    </div>
+    <div class="hourly">
+
+    </div>
+    <div class="forecast-info">
+        <div class="tomorrow">
+            <p class="tomorrow-date"></p>
+            <p class="tomorrow-min-max-temp"></p>
+            <img src="" alt="" title="" class="tomorrow-condition-icon">
+        </div>
+        <div class="dayafter">
+            <p class="dayafter-date"></p>
+            <p class="dayafter-min-max-temp"></p>
+            <img src="" alt="" title="" class="dayafter-condition-icon">
+        </div>
+    </div>
     <script src="./weather-api.bundle.js"></script>
     <script src="./displayDOM.bundle.js"></script>
 </body>
