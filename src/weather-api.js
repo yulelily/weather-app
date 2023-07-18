@@ -14,6 +14,7 @@ function setLocation(newLocation) {
 
 let locationQ = "hongkong";
 
-callWeatherApi();
-setLocation("shanghai");
-callWeatherApi();
+export {
+    callWeatherApi,
+    setLocation
+};
