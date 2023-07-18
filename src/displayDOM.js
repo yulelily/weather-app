@@ -84,6 +84,7 @@ function displayCurrentInfo(weatherData, today) {
 }
 
 function displayHourly(hours, tomorrowHours, currentHour) {
+    hourlyDiv.replaceChildren();
     currentHour++;
 
     let displayCount = 0;
@@ -92,6 +93,32 @@ function displayHourly(hours, tomorrowHours, currentHour) {
         const hourTitle = document.createElement("p");
         hourTitle.textContent = format(new Date(hours[currentHour].time), "h a");
         hourCard.appendChild(hourTitle);
+
+        const temp = document.createElement("p");
+        if (celsius) {
+            temp.textContent = `${hours[currentHour].temp_c} °C`;
+        } else {
+            temp.textContent = `${hours[currentHour].temp_f} °F`;
+        }
+        hourCard.appendChild(temp);
+
+        const img = new Image();
+        img.src = hours[currentHour].condition.icon;
+        const condition = hours[currentHour].condition.text;
+        img.alt = condition;
+        img.title = condition;
+        hourCard.appendChild(img);
+
+        if (hours[currentHour].will_it_rain) {
+            const rain = document.createElement("p")
+            rain.textContent = `🌧 ${hours[currentHour].chance_of_rain} %`;
+            hourCard.appendChild(rain);
+        }
+        if (hours[currentHour].will_it_snow) {
+            const snow = document.createElement("p");
+            snow.textContent = `❄ ${hours[currentHour].chance_of_snow} %`;
+            hourCard.appendChild(snow);
+        }
 
         hourlyDiv.appendChild(hourCard);
         currentHour++;
@@ -105,6 +132,32 @@ function displayHourly(hours, tomorrowHours, currentHour) {
         hourTitle.textContent = format(new Date(hours[tomorrowHour].time), "h a");
         hourCard.appendChild(hourTitle);
 
+        const temp = document.createElement("p");
+        if (celsius) {
+            temp.textContent = `${hours[tomorrowHour].temp_c} °C`;
+        } else {
+            temp.textContent = `${hours[tomorrowHour].temp_f} °F`;
+        }
+        hourCard.appendChild(temp);
+
+        const img = new Image();
+        img.src = hours[tomorrowHour].condition.icon;
+        const condition = hours[tomorrowHour].condition.text;
+        img.alt = condition;
+        img.title = condition;
+        hourCard.appendChild(img);
+
+        if (hours[tomorrowHour].will_it_rain) {
+            const rain = document.createElement("p")
+            rain.textContent = `🌧 ${hours[tomorrowHour].chance_of_rain} %`;
+            hourCard.appendChild(rain);
+        }
+        if (hours[tomorrowHour].will_it_snow) {
+            const snow = document.createElement("p");
+            snow.textContent = `❄ ${hours[tomorrowHour].chance_of_snow} %`;
+            hourCard.appendChild(snow);
+        }
+
         hourlyDiv.appendChild(hourCard);
         tomorrowHour++;
         displayCount++;
@@ -114,9 +167,12 @@ function displayHourly(hours, tomorrowHours, currentHour) {
 const tomorrowDate = document.querySelector(".tomorrow-date");
 const tomorrowTemps = document.querySelector(".tomorrow-min-max-temp");
 const tomorrowConditionIcon = document.querySelector(".tomorrow-condition-icon");
+const tomorrowRainOrSnow = document.querySelector(".tomorrow-rain-or-snow");
+
 const dayafterDate = document.querySelector(".dayafter-date");
 const dayafterTemps = document.querySelector(".dayafter-min-max-temp");
 const dayafterConditionIcon = document.querySelector(".dayafter-condition-icon");
+const dayafterRainOrSnow = document.querySelector(".dayafter-rain-or-snow");
 function displayForecast(tomorrow, dayafter) {
     tomorrowDate.textContent = format(new Date(tomorrow.date), "EEEE");
     dayafterDate.textContent = format(new Date(dayafter.date), "EEEE");
@@ -138,6 +194,30 @@ function displayForecast(tomorrow, dayafter) {
     dayafterConditionIcon.src = dayafter.day.condition.icon;
     dayafterConditionIcon.alt = daCondition;
     dayafterConditionIcon.title = daCondition;
+
+    tomorrowRainOrSnow.replaceChildren();
+    if (tomorrow.day.daily_will_it_rain) {
+        const rain = document.createElement("p")
+        rain.textContent = `🌧 ${tomorrow.day.daily_chance_of_rain} %`;
+        tomorrowRainOrSnow.appendChild(rain);
+    }
+    if (tomorrow.day.daily_will_it_snow) {
+        const snow = document.createElement("p");
+        snow.textContent = `❄ ${tomorrow.day.daily_chance_of_snow} %`;
+        tomorrowRainOrSnow.appendChild(snow);
+    }
+
+    dayafterRainOrSnow.replaceChildren();
+    if (dayafter.day.daily_will_it_rain) {
+        const rain = document.createElement("p")
+        rain.textContent = `🌧 ${dayafter.day.daily_chance_of_rain} %`;
+        dayafterRainOrSnow.appendChild(rain);
+    }
+    if (dayafter.day.daily_will_it_snow) {
+        const snow = document.createElement("p");
+        snow.textContent = `❄ ${dayafter.day.daily_chance_of_snow} %`;
+        dayafterRainOrSnow.appendChild(snow);
+    }
 }
 
 export {
