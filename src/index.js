@@ -17,4 +17,9 @@ searchBtn.addEventListener("click", () => {
     display.currentDOM(weather.currentWeather(searchInput));
 });
 
-display.currentDOM(weather.currentWeather("hongkong"));
+const refreshBtn = document.querySelector(".refresh-btn");
+refreshBtn.addEventListener("click", () => {
+    display.currentDOM(weather.currentWeather());
+});
+
+display.currentDOM(weather.currentWeather("canton, michigan"));

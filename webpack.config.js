@@ -7,6 +7,7 @@ module.exports = {
         "weather-api": "./src/weather-api.js",
         displayDOM: "./src/displayDOM.js",
     },
+    devtool: "inline-source-map",
     output: {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist"),
