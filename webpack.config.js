@@ -5,6 +5,7 @@ module.exports = {
     entry: {
         index: "./src/index.js",
         "weather-api": "./src/weather-api.js",
+        displayDOM: "./src/displayDOM.js",
     },
     output: {
         filename: "[name].bundle.js",

@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _weather_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather-api.js */ \"./src/weather-api.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\ncallWeatherApi();\nsetLocation(\"Shanghai\");\ncallWeatherApi();\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _weather_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather-api.js */ \"./src/weather-api.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\nconst searchBtn = document.querySelector(\".searchBtn\");\nsearchBtn.addEventListener(\"click\", () => {\n    const searchInput = document.getElementById(\"locationQuery\").value;\n    _weather_api_js__WEBPACK_IMPORTED_MODULE_0__.setLocation(searchInput);\n    _weather_api_js__WEBPACK_IMPORTED_MODULE_0__.callWeatherApi();\n    const searchForm = document.querySelector(\".searchForm\");\n    searchForm.reset();\n});\n\n_weather_api_js__WEBPACK_IMPORTED_MODULE_0__.callWeatherApi();\n_weather_api_js__WEBPACK_IMPORTED_MODULE_0__.setLocation(\"Shanghai\");\n_weather_api_js__WEBPACK_IMPORTED_MODULE_0__.callWeatherApi();\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
 
 /***/ }),
 

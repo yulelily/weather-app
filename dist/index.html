@@ -7,7 +7,20 @@
     <script src="./index.bundle.js" defer></script>
 </head>
 <body>
-    <h1>Weather</h1>
+    <form onsubmit="return false" class="searchForm">
+        <label for="locationQuery">Search for location: </label>
+        <input type="text" name="locationQuery" id="locationQuery">
+        <button type="button" class="search-btn">[Q]</button>
+    </form>
+    <p class="display-name-region"></p>
+    <p class="display-country"></p>
+    <p class="date-month-day-year"></p>
+    <p class="date-time"></p>
+    <p class="display-condition"></p>
+    <p class="display-true-degrees"></p>
+    <p class="display-degrees"></p>
+    <button class="toggle-celsius-btn">Displaying °C</button>
     <script src="./weather-api.bundle.js"></script>
+    <script src="./displayDOM.bundle.js"></script>
 </body>
 </html>
