@@ -7,56 +7,74 @@
     <script src="./index.bundle.js" defer></script>
 </head>
 <body>
-    <form onsubmit="return false" class="searchForm">
-        <label for="locationQuery">Search for location: </label>
-        <input type="text" name="locationQuery" id="locationQuery">
-        <button type="button" class="search-btn">[Q]</button>
-    </form>
-    <div class="main-info">
-        <p class="display-name-region"></p>
-        <p class="display-country"></p>
-        <p class="date-month-day-year"></p>
-        <p class="date-time"></p>
-        <p class="display-condition"></p>
-        <img src="" alt="" title="" class="display-condition-icon">
-        <p class="display-true-degrees"></p>
-        <p>Feels Like</p>
-        <p class="display-degrees"></p>
-        <button class="toggle-celsius-btn">Displaying °C</button>
-        <button class="refresh-btn">⟳</button>
-    </div>
-    <div class="aux-info">
-        <p>Today's Weather</p>
-        <p>High</p>
-        <p class="display-high"></p>
-        <p>Low</p>
-        <p class="display-low"></p>
-        <p>Chance of Rain</p>
-        <p class="display-chance-of-rain"></p>
-        <p>Chance of Snow</p>
-        <p class="display-chance-of-snow"></p>
-        <p>Wind Speed</p>
-        <p class="display-wind-speed"></p>
-        <p>Humidity</p>
-        <p class="display-humidity"></p>
-        <p>UV Index</p>
-        <p class="display-uv-index"></p>
-    </div>
-    <div class="hourly">
-
-    </div>
-    <div class="forecast-info">
-        <div class="tomorrow">
-            <p class="tomorrow-date"></p>
-            <p class="tomorrow-min-max-temp"></p>
-            <img src="" alt="" title="" class="tomorrow-condition-icon">
-            <div class="tomorrow-rain-or-snow"></div>
+    <div class="body">
+        <div class="grid-search">
+            <form onsubmit="return false" class="searchForm" autocomplete="off">
+                <label for="locationQuery">Search for location: </label>
+                <input type="text" name="locationQuery" id="locationQuery" class="location-query-input">
+                <button type="button" class="search-btn">🔍</button>
+                <span class="search-error"></span>
+            </form>
         </div>
-        <div class="dayafter">
-            <p class="dayafter-date"></p>
-            <p class="dayafter-min-max-temp"></p>
-            <img src="" alt="" title="" class="dayafter-condition-icon">
-            <div class="dayafter-rain-or-snow"></div>
+        <div class="main-info">
+            <p class="display-name-region"></p>
+            <p class="display-country"></p>
+            <p class="date-month-day-year"></p>
+            <p class="date-time"></p>
+            <p class="display-condition"></p>
+            <img src="" alt="" title="" class="display-condition-icon">
+            <p class="display-true-degrees"></p>
+            <p class="display-feels-like">Feels Like</p>
+            <p class="display-degrees"></p>
+            <button class="toggle-celsius-btn">°C→°F</button>
+            <button class="refresh-btn">⟳</button>
+        </div>
+        <div class="aux-info">
+            <p>Today's Weather</p>
+            <div class="aux-info-card">
+                <p>High:&nbsp;</p>
+                <p class="display-high"></p>
+            </div>
+            <div class="aux-info-card">
+                <p>Low:&nbsp;</p>
+                <p class="display-low"></p>
+            </div>
+            <div class="aux-info-card">
+                <p>Chance of Rain:&nbsp;</p>
+                <p class="display-chance-of-rain"></p>
+            </div>
+            <div class="aux-info-card">
+                <p>Chance of Snow:&nbsp;</p>
+                <p class="display-chance-of-snow"></p>
+            </div>
+            <div class="aux-info-card">
+                <p>Wind Speed:&nbsp;</p>
+                <p class="display-wind-speed"></p>
+            </div>
+            <div class="aux-info-card">
+                <p>Humidity:&nbsp;</p>
+                <p class="display-humidity"></p>
+            </div>
+            <div class="aux-info-card">
+                <p>UV Index:&nbsp;</p>
+                <p class="display-uv-index"></p>
+            </div>
+        </div>
+        <div class="hourly">
+        </div>
+        <div class="forecast-info">
+            <div class="tomorrow">
+                <p class="tomorrow-date"></p>
+                <p class="tomorrow-min-max-temp"></p>
+                <img src="" alt="" title="" class="tomorrow-condition-icon">
+                <div class="tomorrow-rain-or-snow"></div>
+            </div>
+            <div class="dayafter">
+                <p class="dayafter-date"></p>
+                <p class="dayafter-min-max-temp"></p>
+                <img src="" alt="" title="" class="dayafter-condition-icon">
+                <div class="dayafter-rain-or-snow"></div>
+            </div>
         </div>
     </div>
     <script src="./weather-api.bundle.js"></script>

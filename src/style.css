@@ -1,4 +1,154 @@
-body {
-    background-color: rgb(224, 248, 255);
-    color: rgb(0, 0, 0);
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.body {
+    min-height: 100vh;
+    background-image: url("./clem-onojeghuo-zlABb6Gke24-unsplash.jpg");
+    background-size: cover;
+    color: rgb(255, 255, 255);
+    font-family: "Jost", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 550;
+    text-shadow: 4px 4px 2px rgb(0, 0, 0);
+
+    display: grid;
+    grid-template-rows: 40px 1fr 200px;
+    grid-template-columns: minmax(20vw, 300px) 1fr minmax(20vw, 400px);
+}
+
+.grid-search {
+    grid-row: 1;
+    grid-column: 1 / 4;
+
+    display: flex;
+}
+
+.searchForm,
+.location-query-input {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchForm {
+    margin: 4px 16px;
+    gap: 16px;
+}
+
+.location-query-input {
+    max-width: 50vw;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid white;
+
+    color: inherit;
+    background: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.search-btn {
+    border: none;
+    outline: none;
+    color: inherit;
+    background: inherit;
+    font-size: 1.5rem;
+}
+
+.main-info {
+    grid-row: 2 / 3;
+    grid-column: 1;
+    margin: 16px;
+}
+
+.main-info {
+    padding: 2px 0px;
+}
+
+.display-name-region {
+    font-size: 2rem;
+}
+
+.display-country,
+.date-month-day-year,
+.date-time,
+.display-feels-like,
+.display-degrees {
+    font-size: 1rem;
+}
+
+.display-condition {
+    font-size: 1.75rem;
+}
+
+.display-true-degrees {
+    font-size: 2.5rem;
+}
+
+.toggle-celsius-btn,
+.refresh-btn {
+    border: none;
+    color: inherit;
+    background: inherit;
+    font-size: 1.2rem;
+    padding: 2px;
+}
+
+.toggle-celsius-btn:hover,
+.refresh-btn:hover {
+    outline: 2px solid white;
+}
+
+.aux-info {
+    grid-row: 2;
+    grid-column: 3 / 4;
+    margin: 16px;
+    display: flex;
+    flex-direction:column;
+    align-items: flex-end;
+}
+
+.aux-info > p:first-child {
+    font-size: 1.75rem;
+}
+
+.aux-info > * {
+    padding: 2px 0px;
+}
+
+.aux-info-card {
+    display: flex;
+}
+
+.hourly {
+    grid-row: 3 / 4;
+    grid-column: 1 / 3;
+
+    display: flex;
+    overflow: auto;
+}
+
+.hourly > * {
+    min-width: fit-content;
+    padding: 12px;
+}
+
+.hourly > * > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forecast-info {
+    grid-row: 3 / 4;
+    grid-column: 3;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
 }

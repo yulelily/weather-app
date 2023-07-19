@@ -5,9 +5,9 @@ const toggleCelsiusBtn = document.querySelector(".toggle-celsius-btn");
 function toggleCelsius() {
     celsius === true ? celsius = false : celsius = true; 
     if (celsius) {
-        toggleCelsiusBtn.textContent = "displaying °C";
+        toggleCelsiusBtn.textContent = "°C→°F";
     } else {
-        toggleCelsiusBtn.textContent = "displaying °F";
+        toggleCelsiusBtn.textContent = "°F→°C";
     }
 }
 
@@ -37,7 +37,6 @@ async function currentDOM(weatherDataPromise) {
 
     displayCurrentInfo(weatherData, today);
 
-    console.log(weatherData);
     displayHourly(today.hour, forecastDays[1].hour, format(new Date(weatherData.location.localtime), "H"));
 
     displayForecast(forecastDays[1], forecastDays[2]);
@@ -109,12 +108,12 @@ function displayHourly(hours, tomorrowHours, currentHour) {
         img.title = condition;
         hourCard.appendChild(img);
 
-        if (hours[currentHour].will_it_rain) {
+        if (hours[currentHour].chance_of_rain) {
             const rain = document.createElement("p")
             rain.textContent = `🌧 ${hours[currentHour].chance_of_rain} %`;
             hourCard.appendChild(rain);
         }
-        if (hours[currentHour].will_it_snow) {
+        if (hours[currentHour].chance_of_snow) {
             const snow = document.createElement("p");
             snow.textContent = `❄ ${hours[currentHour].chance_of_snow} %`;
             hourCard.appendChild(snow);
@@ -147,12 +146,12 @@ function displayHourly(hours, tomorrowHours, currentHour) {
         img.title = condition;
         hourCard.appendChild(img);
 
-        if (hours[tomorrowHour].will_it_rain) {
+        if (hours[tomorrowHour].chance_of_rain) {
             const rain = document.createElement("p")
             rain.textContent = `🌧 ${hours[tomorrowHour].chance_of_rain} %`;
             hourCard.appendChild(rain);
         }
-        if (hours[tomorrowHour].will_it_snow) {
+        if (hours[tomorrowHour].chance_of_snow) {
             const snow = document.createElement("p");
             snow.textContent = `❄ ${hours[tomorrowHour].chance_of_snow} %`;
             hourCard.appendChild(snow);
@@ -196,12 +195,12 @@ function displayForecast(tomorrow, dayafter) {
     dayafterConditionIcon.title = daCondition;
 
     tomorrowRainOrSnow.replaceChildren();
-    if (tomorrow.day.daily_will_it_rain) {
+    if (tomorrow.day.daily_chance_of_rain) {
         const rain = document.createElement("p")
         rain.textContent = `🌧 ${tomorrow.day.daily_chance_of_rain} %`;
         tomorrowRainOrSnow.appendChild(rain);
     }
-    if (tomorrow.day.daily_will_it_snow) {
+    if (tomorrow.day.daily_chance_of_snow) {
         const snow = document.createElement("p");
         snow.textContent = `❄ ${tomorrow.day.daily_chance_of_snow} %`;
         tomorrowRainOrSnow.appendChild(snow);
